@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest-framework',
+    'myapp',
 ]
 
 MIDDLEWARE = [
@@ -72,14 +74,17 @@ WSGI_APPLICATION = 'EmployeeManagementSite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
-
+# Bind postgre as defaut
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'EmployeeManagementDB',
+        'USER': 'bhagat',
+        'PASSWORD': 'bhagat',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -120,19 +125,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
-
-
-
-
-# Bind postgre as defaut
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'EmployeeManagementDB',
-        'USER': 'bhagat',
-        'PASSWORD': 'bhagat',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
-    }
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ]
 }
+
+
