@@ -18,4 +18,17 @@ def fetch_users(request, company_id):
 	
 	print(dic)
 	return HttpResponse(json.dumps(dic), content_type="application/json")
+
+def add_company(request, company_name):
+	resp = 'success'
+	q = Company(company_name=company_name)
+	q.save()
+	return HttpResponse(json.dumps(resp), content_type="application/json")
+
 	
+def fetch(request):
+	dic = {}
+	dic['User'] = []
+	for i in User.objects.all():
+		dic['User'].append(i.user_name)
+	return HttpResponse(json.dumps(dic), content_type="application/json")
