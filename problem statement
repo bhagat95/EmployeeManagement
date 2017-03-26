@@ -1,0 +1,25 @@
+
+Django development test
+
+Required functionalities 
+Create an API with necessary POST, GET, UPDATE and DELETE requests.
+Response format should be JSON and request format follows the conventions associated with the request type.
+In the database, there should be a user model and a company model. Each company has multiple users.
+In the user creation API, there should be a company parameter to add the user to the correct company. 
+The API should have necessary links to query users or companies, where the company query also returns the list of users that work at the given company.
+If a company is deleted, all users associated with the company should also be deleted.
+
+BONUS (NON MANDATORY)
+Implement a login system (with session management) for users, to allow them to perform certain restricted actions such as changing their profile, which they can only do when they are logged in. (You can use inbuilt Django features to help yourself)
+You can add anything you like on this platform (media upload, emails, etc.) to show your skills. (eg. Profile images or something along those lines)
+You can create a dashboard for a superuser to be able to access the database in a clean and nice way where they also have control over the database.
+
+
+Technologies and advice
+You need to use an MVC framework (Django) to create a model that will hold the saved data.
+The database needs to be in PostgreSQL. Use Django’s migration tools so that we can generate the database structure.
+Use a git repository of your choice that you will share us
+
+Good luck !
+
+
