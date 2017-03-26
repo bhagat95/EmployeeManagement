@@ -25,6 +25,17 @@ def add_company(request, company_name):
 	q.save()
 	return HttpResponse(json.dumps(resp), content_type="application/json")
 
+def delete_company(request, company_id):
+	resp = "success"
+	User.objects.filter(company_id__company_id=company_id).delete()
+	Company.objects.filter(company_id=company_id)
+	return HttpResponse(json.dumps(resp), content_type="application/json")
+	
+def add_user(request, user_name, company_id):
+	resp = "success"
+	q = User(user_name=user_name, company_id__company_id=company_id)
+	q.save()
+	return HttpResponse(json.dumps(resp), content_type="application/json")
 	
 def fetch(request):
 	dic = {}
